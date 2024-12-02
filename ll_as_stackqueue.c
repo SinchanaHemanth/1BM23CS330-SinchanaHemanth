@@ -1,13 +1,12 @@
+//WAP to Implement Single Link List to simulate Stack & Queue Operations.
 #include <stdio.h>
 #include <stdlib.h>
 
-// Definition of a single linked list node
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Stack: Operations using the Linked List
 void push(struct Node** head, int value) {
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
     new_node->data = value;
@@ -27,7 +26,6 @@ int pop(struct Node** head) {
     return popped_value;
 }
 
-// Queue: Operations using the Linked List
 void enqueue(struct Node** head, struct Node** tail, int value) {
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
     new_node->data = value;
@@ -56,7 +54,6 @@ int dequeue(struct Node** head, struct Node** tail) {
     return dequeued_value;
 }
 
-// Utility functions to display the list
 void display(struct Node* head) {
     struct Node* temp = head;
     if (temp == NULL) {
@@ -71,13 +68,12 @@ void display(struct Node* head) {
 }
 
 int main() {
-    struct Node* stack_head = NULL; // Head of stack
-    struct Node* queue_head = NULL; // Head of queue
-    struct Node* queue_tail = NULL; // Tail of queue
+    struct Node* stack_head = NULL; 
+    struct Node* queue_head = NULL;
+    struct Node* queue_tail = NULL; 
     int choice, value;
 
     while(1) {
-        // Menu for operations
         printf("\nMenu:\n");
         printf("1. Push to Stack\n");
         printf("2. Pop from Stack\n");
