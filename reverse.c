@@ -1,7 +1,10 @@
+/* WAP to Implement Single Link List with following  operations: 
+        Sort the linked list,  
+       Reverse the linked list,  
+       Concatenation of two linked lists. */
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define a node
 struct Node {
     int data;
     struct Node* next;
