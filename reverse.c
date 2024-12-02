@@ -7,7 +7,6 @@ struct Node {
     struct Node* next;
 };
 
-// Function to create a new node
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -15,7 +14,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert a node at the end
 void append(struct Node** head, int data) {
     struct Node* newNode = createNode(data);
     if (*head == NULL) {
@@ -29,7 +27,6 @@ void append(struct Node** head, int data) {
     temp->next = newNode;
 }
 
-// Function to display the linked list
 void display(struct Node* head) {
     struct Node* temp = head;
     while (temp != NULL) {
@@ -39,7 +36,6 @@ void display(struct Node* head) {
     printf("NULL\n");
 }
 
-// Function to sort the linked list
 void sortList(struct Node** head) {
     struct Node* i, *j;
     int temp;
@@ -54,7 +50,6 @@ void sortList(struct Node** head) {
     }
 }
 
-// Function to reverse the linked list
 void reverseList(struct Node** head) {
     struct Node *prev = NULL, *current = *head, *next = NULL;
     while (current != NULL) {
@@ -66,7 +61,6 @@ void reverseList(struct Node** head) {
     *head = prev;
 }
 
-// Function to concatenate two linked lists
 struct Node* concatenate(struct Node* head1, struct Node* head2) {
     if (head1 == NULL) return head2;
     if (head2 == NULL) return head1;
@@ -84,7 +78,6 @@ int main() {
     struct Node* list2 = NULL;
     int n1, n2, data, i;
 
-    // Input for List 1
     printf("Enter the number of elements in List 1: ");
     scanf("%d", &n1);
     printf("Enter the elements of List 1:\n");
@@ -93,7 +86,6 @@ int main() {
         append(&list1, data);
     }
 
-    // Input for List 2
     printf("Enter the number of elements in List 2: ");
     scanf("%d", &n2);
     printf("Enter the elements of List 2:\n");
@@ -108,17 +100,14 @@ int main() {
     printf("List 2: ");
     display(list2);
 
-    // Sorting List 1
     sortList(&list1);
     printf("Sorted List 1: ");
     display(list1);
 
-    // Reversing List 1
     reverseList(&list1);
     printf("Reversed List 1: ");
     display(list1);
 
-    // Concatenating List 1 and List 2
     struct Node* mergedList = concatenate(list1, list2);
     printf("Concatenated List: ");
     display(mergedList);
