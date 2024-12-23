@@ -1,4 +1,4 @@
-//WAP to Implement Single Link List to simulate Stack & Queue Operations.
+//Q6(b) WAP to Implement Single Link List to simulate Stack & Queue Operations.
 #include <stdio.h>
 #include <stdlib.h>
 
