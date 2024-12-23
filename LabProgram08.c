@@ -1,3 +1,7 @@
+/*Q8 Write a program
+-To construct a binary Search tree.
+-To traverse the tree using all the methods such as in-order, preorder and post order, display all traversal order*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
