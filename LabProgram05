@@ -1,7 +1,7 @@
 /*Q5. WAP in c to Implement Singly Linked List with following operations 
 -Create a linked list.
 -Deletion of first element, specified element and last element in the list.
--Display the contents of the linked list */
+-Display the contents of the linked list. */
 
 #include <stdio.h>
 #include <stdlib.h>
