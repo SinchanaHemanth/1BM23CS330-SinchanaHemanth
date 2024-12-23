@@ -1,3 +1,9 @@
+/*Q7. WAP to implement doubly linked list with operations 
+-Create a doubly linked list
+-Insert a new node to the left of the node
+-Delete a node based on a specific value
+-Display the contents of a list*/
+
 #include<stdio.h>
 #include<stdlib.h>
 struct Node 
