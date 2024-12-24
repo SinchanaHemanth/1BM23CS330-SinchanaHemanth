@@ -1,4 +1,4 @@
-/*Q1. Write a program to convert given valid parenthesized infix arithmetic expressions to postfix expressions. The expression consists of single character operands and the binary operators are:
+/*Q2. Write a program to convert given valid parenthesized infix arithmetic expressions to postfix expressions. The expression consists of single character operands and the binary operators are:
 + (plus), - (minus), * (multiply), / (divide) and ^ (exponential). */
 
 #include <stdio.h>
