@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+#define MAX 100
+
+typedef struct {
+    int top;
+    char items[MAX];
+} Stack;
+
+void initStack(Stack *s) {
+    s->top = -1;
+}
+
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
+void push(Stack *s, char item) {
+    if (s->top < MAX - 1) {
+        s->items[++s->top] = item;
+        return;
+    }
+    printf("Stack Overflow\n");
+}
+
+char pop(Stack *s) {
+    if (!isEmpty(s)) {
+        return s->items[s->top--];
+    } else {
+        printf("Stack Underflow\n");
+        return '\0'; 
+    }
+}
+
+char peek(Stack *s) {
+    if (!isEmpty(s)) {
+        return s->items[s->top];
+    } else {
+        return '\0'; 
+    }
+}
+
+int precedence(char op) {
+    switch (op) {
+        case '+':
+        case '-':
+            return 1;
+        case '*':
+        case '/':
+            return 2;
+        case '^':
+            return 3;
+        default:
+            return 0; 
+    }
+}
+
+int isOperator(char c) {
+    return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+}
+
+void infixToPostfix(char *infix, char *postfix, Stack *stack) {
+    int i, j = 0;
+    char c;
+
+    for (i = 0; infix[i] != '\0'; i++) {
+        c = infix[i];
+
+        if (isalnum(c)) {
+            postfix[j++] = c;
+        }
+        else if (c == '(') {
+            push(stack, c);
+        }
+        else if (c == ')') {
+            while (!isEmpty(stack) && peek(stack) != '(') {
+                postfix[j++] = pop(stack);
+            }
+            if (!isEmpty(stack) && peek(stack) == '(') {
+                pop(stack); 
+            }
+        }
+        else if (isOperator(c)) {
+            while (!isEmpty(stack) && precedence(peek(stack)) >= precedence(c)) {
+                postfix[j++] = pop(stack);
+            }
+            push(stack, c);
+        }
+    }
+
+    while (!isEmpty(stack)) {
+        postfix[j++] = pop(stack);
+    }
+
+    postfix[j] = '\0'; 
+}
+
+int main() {
+    char infix[MAX], postfix[MAX];
+    Stack stack;
+
+    initStack(&stack);
+
+    printf("Enter a valid parenthesized infix expression: ");
+    scanf("%s", infix);
+
+    infixToPostfix(infix, postfix, &stack);
+
+    printf("Postfix Expression: %s\n", postfix);
+
+    return 0;
+}
