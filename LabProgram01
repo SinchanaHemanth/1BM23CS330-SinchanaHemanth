@@ -1,3 +1,9 @@
+/*Q1. Write a program to simulate the working of stack using an array with the following:
+-Push
+-Pop
+-Display
+The program should print appropriate messages for stack overflow, stack underflow. */
+
 #include <stdio.h>
 #define MAX 5 
 
